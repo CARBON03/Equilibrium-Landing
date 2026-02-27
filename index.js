@@ -64,24 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ── MOBILE NAV TOGGLE (hamburger placeholder) ── */
-  // If you add a hamburger button with id="nav-toggle", this handles it.
-  const toggle = document.getElementById('nav-toggle');
-  const navMenu = document.querySelector('nav ul');
-  if (toggle && navMenu) {
-    toggle.addEventListener('click', () => {
-      const open = navMenu.style.display === 'flex';
-      navMenu.style.display = open ? 'none' : 'flex';
-      navMenu.style.flexDirection = 'column';
-      navMenu.style.position = 'absolute';
-      navMenu.style.top = '70px';
-      navMenu.style.left = '0';
-      navMenu.style.right = '0';
-      navMenu.style.background = 'var(--surface)';
-      navMenu.style.padding = '20px';
-      navMenu.style.gap = '16px';
-    });
-  }
+  /* ── MOBILE NAV TOGGLE (tap to expand, like desktop hover) ── */
+  const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  nav.addEventListener('click', () => {
+    if (!isMobile()) return;
+    nav.classList.toggle('nav-open');
+  });
+  document.addEventListener('click', (e) => {
+    if (isMobile() && !nav.contains(e.target)) {
+      nav.classList.remove('nav-open');
+    }
+  });
 
   /* ── PHONE LAYER: subtle parallax on mouse move ── */
   const phoneLayer = document.getElementById('phone-layer');
