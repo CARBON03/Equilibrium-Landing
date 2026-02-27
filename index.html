@@ -10,41 +10,30 @@
 </head>
 <body>
 
-  <!-- ── BACKGROUND ORBS ── -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
-  <!-- ══════════════════════════════════════
-       NAV
-  ══════════════════════════════════════ -->
   <nav>
-    <a href="#" class="logo">
-      <div class="logo-icon">₹</div>
-      EQUILIBRIUM
-    </a>
-    <ul>
-      <li><a href="#">How it works</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Earn Rewards</a></li>
+    <ul class="nav-left">
+      <li><div class="nav-item"><a href="#section1">ABOUT</a></div></li>
+      <li><div class="nav-item"><a href="#section0">HOME</a></div></li>
     </ul>
-    <a href="./apk/app-release.apk" class="btn-nav" download="equilibrium.apk">
-    Download PDF
-</a>
-
+    <a href="#" class="logo">
+      <div class="logo-icon-div"><img class="logo-icon" src="./assets/logo_small.png" alt="Equilibrium Logo"></div>
+    </a>
+    <ul class="nav-right">
+      <li><div class="nav-item"><a href="#section2">EARN</a></div></li>
+      <li><div class="nav-item"><a href="./apk/app-release.apk" download="equilibrium.apk" >DOWNLOAD</a></div></li>
+    </ul>
   </nav>
 
-  <!-- ══════════════════════════════════════
-       HERO
-  ══════════════════════════════════════ -->
-  <section class="hero">
+  <section id="section0" class="hero">
 
-    <!-- LEFT COPY -->
     <div class="hero-left">
       <h1>
-        <span class="line1">BUILT TO</span>
-        <span class="line2">SETTLE,</span>
-        <span class="line1" style="font-size: clamp(22px,3vw,44px); margin-top: 12px; font-style: italic; opacity: 0.6; letter-spacing: 0.01em;">designed for accountability</span>
+        <span class="line2">EQUILIBRIUM</span>
+        <span class="line1" style="font-size: clamp(22px,2vw,44px); margin-top: 12px; font-style: italic; opacity: 0.6; letter-spacing: 0.01em;">designed for accountability</span>
       </h1>
 
       <p class="hero-desc">
@@ -60,55 +49,36 @@
       </a>
     </div>
 
-    <!-- ══════════════════════════════════════
-         PHONE / 3D MODEL LAYER
-    ══════════════════════════════════════ -->
     <div id="phone-layer">
 
       <div class="ring ring-1"></div>
       <div class="ring ring-2"></div>
 
-      <!-- Floating chip — bottom left -->
       <div class="chip chip-3">
-        <div class="chip-icon">💸</div>
+        <div class="chip-icon">✔</div>
         <div class="chip-text">
           <span>Priya paid her share</span>
           <strong>₹ 1,240 settled</strong>
         </div>
       </div>
 
-      <!-- Floating chip — split -->
       <div class="chip chip-1">
-        <div class="chip-icon">✅</div>
+        <div class="chip-icon">🜲</div>
         <div class="chip-text">
           <span>Rohan paid his share</span>
           <strong>₹ 840 settled</strong>
         </div>
       </div>
 
-      <!-- Floating chip — points earned -->
       <div class="chip chip-2">
-        <div class="chip-icon">🎁</div>
+        <div class="chip-icon">✔</div>
         <div class="chip-text">
           <span>Points earned today</span>
           <strong>+320 pts = ₹32</strong>
         </div>
       </div>
 
-      <!--
-        ┌──────────────────────────────────────┐
-        │          3D MODEL MOUNT ZONE         │
-        │                                      │
-        │  Replace this div's contents with    │
-        │  your Three.js canvas, Spline embed, │
-        │  <model-viewer> tag, or any other    │
-        │  3D/WebGL renderer.                  │
-        │                                      │
-        │  The dashed border is just a guide   │
-        │  — remove .phone-placeholder styles  │
-        │  once your model is in place.        │
-        └──────────────────────────────────────┘
-      -->
+
       <div id="model-mount">
         <video id="phone-video" autoplay loop muted playsinline>
            <source src="./3D Model/Recording.mp4" type="video/mp4" />
@@ -123,7 +93,7 @@
   <!-- ══════════════════════════════════════
        FEATURES
   ══════════════════════════════════════ -->
-  <section class="features">
+  <section id="section1" class="features">
     <p class="section-label">// What we offer</p>
     <h2 class="section-title">Everything you need to manage money with friends.</h2>
     <div class="features-grid">
@@ -170,7 +140,7 @@
   <!-- ══════════════════════════════════════
        HOW REWARDS WORK
   ══════════════════════════════════════ -->
-  <section class="rewards-section">
+  <section id="section2" class="rewards-section">
     <p class="section-label">// Earn while you split</p>
     <h2 class="section-title">Ads on your terms. Points that pay you back.</h2>
     <div class="rewards-grid">
@@ -206,6 +176,6 @@
     <p style="font-size:11px;">Split smart. Earn more.</p>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="index.js"></script>
 </body>
 </html>

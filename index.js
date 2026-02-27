@@ -4,15 +4,21 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ── NAV: shrink on scroll ── */
   const nav = document.querySelector('nav');
+  const hero = document.querySelector('.hero');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 60) {
-      nav.style.background = 'rgba(0,0,0,0.92)';
-      nav.style.boxShadow = '0 8px 50px rgba(0,0,0,0.7)';
+    const heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight;
+    if (heroBottom < 0) {
+      nav.classList.add('nav-hidden');
     } else {
-      nav.style.background = 'rgba(10,10,10,0.75)';
-      nav.style.boxShadow = '0 8px 40px rgba(0,0,0,0.5)';
+      nav.classList.remove('nav-hidden');
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(0,0,0,0.92)';
+        nav.style.boxShadow = '0 8px 50px rgba(0,0,0,0.7)';
+      } else {
+        nav.style.background = 'rgba(10,10,10,0.75)';
+        nav.style.boxShadow = '0 8px 40px rgba(0,0,0,0.5)';
+      }
     }
   });
 
