@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Equilibrium — Smart Expense & Bill Splitting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ── BACKGROUND ORBS ── -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- ══════════════════════════════════════
+       NAV
+  ══════════════════════════════════════ -->
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-icon">₹</div>
+      EQUILIBRIUM
+    </a>
+    <ul>
+      <li><a href="#">How it works</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Earn Rewards</a></li>
+    </ul>
+    <a href="./apk/app-release.apk" class="btn-nav" download="equilibrium.apk">
+    Download PDF
+</a>
+
+  </nav>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <section class="hero">
+
+    <!-- LEFT COPY -->
+    <div class="hero-left">
+      <h1>
+        <span class="line1">BUILT TO</span>
+        <span class="line2">SETTLE,</span>
+        <span class="line1" style="font-size: clamp(22px,3vw,44px); margin-top: 12px; font-style: italic; opacity: 0.6; letter-spacing: 0.01em;">designed for accountability</span>
+      </h1>
+
+      <p class="hero-desc">
+        Manage shared expenses effortlessly, split bills in seconds, and earn real reward points just by watching ads on your own terms. No pressure — you're always in control.
+      </p>
+
+      <a href="./apk/app-release.apk" class="btn-download-now" download="equilibrium.apk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="20" height="20">
+          <path d="M12 4v12M6 14l6 6 6-6"/>
+          <path d="M4 20h16" stroke-linecap="round"/>
+        </svg>
+        Download Now
+      </a>
+    </div>
+
+    <!-- ══════════════════════════════════════
+         PHONE / 3D MODEL LAYER
+    ══════════════════════════════════════ -->
+    <div id="phone-layer">
+
+      <div class="ring ring-1"></div>
+      <div class="ring ring-2"></div>
+
+      <!-- Floating chip — bottom left -->
+      <div class="chip chip-3">
+        <div class="chip-icon">💸</div>
+        <div class="chip-text">
+          <span>Priya paid her share</span>
+          <strong>₹ 1,240 settled</strong>
+        </div>
+      </div>
+
+      <!-- Floating chip — split -->
+      <div class="chip chip-1">
+        <div class="chip-icon">✅</div>
+        <div class="chip-text">
+          <span>Rohan paid his share</span>
+          <strong>₹ 840 settled</strong>
+        </div>
+      </div>
+
+      <!-- Floating chip — points earned -->
+      <div class="chip chip-2">
+        <div class="chip-icon">🎁</div>
+        <div class="chip-text">
+          <span>Points earned today</span>
+          <strong>+320 pts = ₹32</strong>
+        </div>
+      </div>
+
+      <!--
+        ┌──────────────────────────────────────┐
+        │          3D MODEL MOUNT ZONE         │
+        │                                      │
+        │  Replace this div's contents with    │
+        │  your Three.js canvas, Spline embed, │
+        │  <model-viewer> tag, or any other    │
+        │  3D/WebGL renderer.                  │
+        │                                      │
+        │  The dashed border is just a guide   │
+        │  — remove .phone-placeholder styles  │
+        │  once your model is in place.        │
+        └──────────────────────────────────────┘
+      -->
+      <div id="model-mount">
+        <video id="phone-video" autoplay loop muted playsinline>
+           <source src="./3D Model/Recording.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+    </div>
+    <!-- /#phone-layer -->
+
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════ -->
+  <section class="features">
+    <p class="section-label">// What we offer</p>
+    <h2 class="section-title">Everything you need to manage money with friends.</h2>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon">🔀</div>
+        <h3>Instant Bill Splitting</h3>
+        <p>Split any bill equally or by custom amounts in one tap. No more awkward calculations at the dinner table.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👥</div>
+        <h3>Trip & Group Wallets</h3>
+        <p>Create dedicated groups for Goa trips, flatmates, or office lunches. Track every rupee, per group, always.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📺</div>
+        <h3>Watch Ads, Earn Points</h3>
+        <p>Watch short ads only when you want to. Every ad earns you reward points redeemable as real cash or credits.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔔</div>
+        <h3>Smart Notifications</h3>
+        <p>Get nudges when someone adds an expense, settles up, or owes you money. Never lose track of who paid what.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Expense Analytics</h3>
+        <p>Visual breakdowns of your spending by category, month, or group. Understand where your money actually goes.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>One-Tap Settle Up</h3>
+        <p>Settle balances directly through UPI, wallets, or bank transfers without leaving the app — instant and painless.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       HOW REWARDS WORK
+  ══════════════════════════════════════ -->
+  <section class="rewards-section">
+    <p class="section-label">// Earn while you split</p>
+    <h2 class="section-title">Ads on your terms. Points that pay you back.</h2>
+    <div class="rewards-grid">
+      <div class="reward-step">
+        <div class="reward-num">01</div>
+        <h3>Choose to Watch</h3>
+        <p>Tap the "Earn Points" button whenever you feel like it. Zero forced ads — ever.</p>
+      </div>
+      <div class="reward-arrow">→</div>
+      <div class="reward-step">
+        <div class="reward-num">02</div>
+        <h3>Collect Points</h3>
+        <p>Each short ad adds points to your wallet. Points accumulate with every watch.</p>
+      </div>
+      <div class="reward-arrow">→</div>
+      <div class="reward-step">
+        <div class="reward-num">03</div>
+        <h3>Cash Out</h3>
+        <p>Redeem points as real money, discount credits, or use them to settle your share of a bill.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer>
+    <a href="#" class="logo" style="font-size:15px;">
+      <div class="logo-icon" style="width:26px;height:26px;font-size:12px;">₹</div>
+      EQUILIBRIUM
+    </a>
+    <p>© 2026 Equilibrium. All rights reserved.</p>
+    <p style="font-size:11px;">Split smart. Earn more.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
