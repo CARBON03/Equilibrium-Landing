@@ -3,15 +3,57 @@
    ============================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Ensure nav background/shadow is correct on load
+    function updateNavBg() {
+      if (!nav) return;
+      if (window.scrollY > 60) {
+        nav.style.background = 'rgba(0,0,0,0.92)';
+        nav.style.boxShadow = '0 8px 50px rgba(0,0,0,0.7)';
+      } else {
+        nav.style.background = 'rgba(10,10,10,0.75)';
+        nav.style.boxShadow = '0 8px 40px rgba(0,0,0,0.5)';
+      }
+    }
+    updateNavBg();
+    window.addEventListener('scroll', updateNavBg);
+  // Scroll to top button logic
+  const scrollBtn = document.getElementById('scrollToTop');
+  function updateScrollBtn() {
+    const hero = document.querySelector('.hero');
+    const heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight;
+    if (heroBottom < -40) {
+      scrollBtn.style.opacity = '1';
+      scrollBtn.style.pointerEvents = 'auto';
+    } else {
+      scrollBtn.style.opacity = '0';
+      scrollBtn.style.pointerEvents = 'none';
+    }
+  }
+  window.addEventListener('scroll', updateScrollBtn);
+  updateScrollBtn();
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
 
   const nav = document.querySelector('nav');
   const hero = document.querySelector('.hero');
   window.addEventListener('scroll', () => {
     const heroBottom = hero ? hero.getBoundingClientRect().bottom : window.innerHeight;
+    const firstP = document.querySelector('.features p, .rewards-section p, section p');
     if (heroBottom < 0) {
       nav.classList.add('nav-hidden');
+      // Move nav softly towards first <p> after hero
+      if (firstP) {
+        const pRect = firstP.getBoundingClientRect();
+        nav.style.transform = `translate(-50%, ${pRect.top - 40}px) scale(0.92)`;
+      }
+      nav.style.opacity = '0';
+      nav.style.pointerEvents = 'none';
     } else {
       nav.classList.remove('nav-hidden');
+      nav.style.opacity = '1';
+      nav.style.pointerEvents = '';
+      nav.style.transform = 'translateX(-50%)';
       if (window.scrollY > 60) {
         nav.style.background = 'rgba(0,0,0,0.92)';
         nav.style.boxShadow = '0 8px 50px rgba(0,0,0,0.7)';
@@ -66,13 +108,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ── MOBILE NAV TOGGLE (tap to expand, like desktop hover) ── */
   const isMobile = () => window.matchMedia('(max-width: 768px)').matches;
+  let navAutoCloseTimer = null;
+
+  function closeNavMobile() {
+    nav.classList.remove('nav-open');
+    clearTimeout(navAutoCloseTimer);
+    navAutoCloseTimer = null;
+  }
+
   nav.addEventListener('click', () => {
     if (!isMobile()) return;
-    nav.classList.toggle('nav-open');
+    const isOpen = nav.classList.toggle('nav-open');
+    clearTimeout(navAutoCloseTimer);
+    if (isOpen) {
+      navAutoCloseTimer = setTimeout(() => closeNavMobile(), 4000);
+    }
   });
   document.addEventListener('click', (e) => {
     if (isMobile() && !nav.contains(e.target)) {
-      nav.classList.remove('nav-open');
+      closeNavMobile();
     }
   });
 
